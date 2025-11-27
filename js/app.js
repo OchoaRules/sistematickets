@@ -1,25 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("ticketForm");
-    const lista = document.getElementById("listaTickets");
+const form = document.getElementById("ticketForm");
+const ticketsContainer = document.getElementById("ticketsContainer");
 
-    form.addEventListener("submit", (e) => {
-        e.preventDefault();
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
 
-        const titulo = document.getElementById("titulo").value;
-        const descripcion = document.getElementById("descripcion").value;
-        const prioridad = document.getElementById("prioridad").value;
+    let titulo = document.getElementById("titulo");
+    let descripcion = document.getElementById("descripcion");
+    let prioridad = document.getElementById("prioridad");
 
-        const li = document.createElement("li");
-        li.classList.add("ticket");
+    // Validaciones
+    let valido = true;
 
-        li.innerHTML = `
-            <h3>${titulo}</h3>
-            <p>${descripcion}</p>
-            <p class="prioridad">Prioridad: <strong>${prioridad}</strong></p>
-        `;
+    if (titulo.value.trim().length < 3) {
+        titulo.classList.add("is-invalid");
+        valido = false;
+    } else {
+        titulo.classList.remove("is-invalid");
+    }
 
-        lista.appendChild(li);
+    if (descripcion.value.trim().length < 10) {
+        descripcion.classList.add("is-invalid");
+        valido = false;
+    } else {
+        descripcion.classList.remove("is-invalid");
+    }
 
-        form.reset();
+    if (!valido) return;
+
+    // Crear ticket
+    let ticket = document.createElement("div");
+    ticket.classList.add("card", "p-3", "mb-3", "ticket");
+
+    switch(prioridad.value) {
+        case "alta": ticket.classList.add("ticket-alta"); break;
+        case "media": ticket.classList.add("ticket-media"); break;
+        case "baja": ticket.classList.add("ticket-baja"); break;
+    }
+
+    ticket.innerHTML = `
+        <h5>${titulo.value}</h5>
+        <p>${descripcion.value}</p>
+        <span class="badge bg-danger">Prioridad: ${prioridad.value}</span>
+        <button class="btn btn-sm btn-outline-danger mt-2 btn-delete">Eliminar</button>
+    `;
+
+    // Botón eliminar
+    ticket.querySelector(".btn-delete").addEventListener("click", () => {
+        ticket.remove();
     });
+
+    // Agregar al contenedor (arriba de los demás)
+    ticketsContainer.prepend(ticket);
+
+    // Limpiar formulario
+    form.reset();
 });
