@@ -1,18 +1,103 @@
-.ticket {
-    border-radius: 10px;
+/* Estilos generales */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #333;
+}
+
+/* Encabezado */
+header {
+    background: #4A90E2;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    box-shadow: 0px 3px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 35px;
+}
+
+header p {
+    margin-top: 10px;
+}
+
+/* Contenido principal */
+main {
+    width: 90%;
+    max-width: 900px;
+    margin: 30px auto;
+    display: grid;
+    gap: 25px;
+}
+
+/* Tarjetas */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Formularios */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 15px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus, textarea:focus {
+    border-color: #4A90E2;
+}
+
+/* Botones */
+.btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #4A90E2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #3a7bc0;
+}
+
+/* Tickets */
+#listaTickets {
+    list-style: none;
+    padding: 0;
+}
+
+#listaTickets li {
+    background: #e9f2ff;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-left: 5px solid #4A90E2;
+    border-radius: 6px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
     padding: 15px;
-    margin-bottom: 15px;
-}
-
-.prioridad-alta {
-    border-left: 5px solid red;
-    background-color: #ffe2e2;
-}
-
-.prioridad-normal {
-    border-left: 5px solid blue;
-}
-
-.prioridad-baja {
-    border-left: 5px solid green;
+    color: #555;
+    font-size: 14px;
 }
