@@ -1,98 +1,126 @@
-/* Colores lilas suaves */
+/* Colores base */
 :root {
-    --lila-suave: #e9d7ff;
-    --lila-claro: #d4b8ff;
-    --lila-medio: #b689ff;
-    --lila-oscuro: #6c34a9;
-    --texto: #2e2e2e;
-    --blanco: #ffffff;
+    --lila-fondo: #f3e8ff;
+    --lila-claro: #d8b4fe;
+    --lila: #a855f7;
+    --lila-oscuro: #7e22ce;
+    --texto: #333;
+    --blanco: #fff;
 }
 
-/* General */
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--lila-fondo);
     margin: 0;
-    background-color: var(--lila-suave);
+    padding: 0;
     color: var(--texto);
 }
 
-/* Encabezado */
 header {
-    background: var(--lila-oscuro);
-    color: var(--blanco);
+    background: var(--lila);
+    color: white;
     padding: 20px;
     text-align: center;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-/* Main layout */
-main {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
-    flex-wrap: wrap;
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+    display: grid;
+    gap: 25px;
 }
 
-/* Caja del formulario */
-.ticket-form, .ticket-list {
+.card {
     background: var(--blanco);
-    padding: 20px;
-    width: 45%;
-    min-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-/* Títulos */
-.ticket-form h2, .ticket-list h2 {
+h2 {
     color: var(--lila-oscuro);
 }
 
-/* Inputs */
 input, textarea, select {
     width: 100%;
-    padding: 10px;
-    border: 2px solid var(--lila-claro);
-    border-radius: 8px;
+    padding: 12px;
+    margin-top: 6px;
     margin-bottom: 15px;
+    border-radius: 10px;
+    border: 2px solid var(--lila-claro);
     outline: none;
-    transition: border 0.3s;
+    font-size: 15px;
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: var(--lila-oscuro);
+    border-color: var(--lila);
 }
 
-/* Botón */
-button {
-    background: var(--lila-medio);
-    color: var(--blanco);
+.btn {
+    background: var(--lila);
+    color: white;
     padding: 12px;
-    width: 100%;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
+    width: 100%;
     font-size: 16px;
-    transition: background 0.3s ease;
 }
 
-button:hover {
+.btn:hover {
     background: var(--lila-oscuro);
 }
 
 /* Lista de tickets */
-.ticket {
-    background: var(--lila-claro);
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    color: #3a2769;
+#listaTickets {
+    list-style: none;
+    padding: 0;
 }
 
+.ticket {
+    background: var(--lila-claro);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    color: #4b006e;
+}
+
+.ticket strong {
+    font-size: 18px;
+}
+
+.eliminar {
+    margin-top: 10px;
+    background: #d946ef;
+    padding: 8px;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.eliminar:hover {
+    background: #c026d3;
+}
+
+/* Filtros */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.filters input, .filters select {
+    width: 50%;
+}
+
+/* Footer */
 footer {
-    background: var(--lila-oscuro);
-    color: var(--blanco);
     text-align: center;
-    padding: 10px;
-    margin-top: 20px;
+    padding: 20px;
+    margin-top: 30px;
+    color: #555;
 }

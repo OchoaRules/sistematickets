@@ -8,12 +8,14 @@
 </head>
 <body>
 
-    <header>
-        <h1>Sistema de Tickets</h1>
-    </header>
+<header>
+    <h1>Sistema de Tickets</h1>
+</header>
 
-    <main>
-        <section class="ticket-form">
+<main>
+    <div class="container">
+
+        <section class="card">
             <h2>Crear Ticket</h2>
             <form id="ticketForm">
                 <label for="titulo">Título:</label>
@@ -29,20 +31,35 @@
                     <option value="Software">Software</option>
                 </select>
 
-                <button type="submit">Crear Ticket</button>
+                <button type="submit" class="btn">Crear Ticket</button>
             </form>
         </section>
 
-        <section class="ticket-list">
+        <section class="card">
             <h2>Tickets Generados</h2>
+
+            <div class="filters">
+                <select id="filtroCategoria">
+                    <option value="Todos">Todas las categorías</option>
+                    <option value="Soporte Técnico">Soporte Técnico</option>
+                    <option value="Redes">Redes</option>
+                    <option value="Software">Software</option>
+                </select>
+
+                <input type="text" id="busquedaTexto" placeholder="Buscar por texto...">
+            </div>
+
             <ul id="listaTickets"></ul>
         </section>
-    </main>
 
-    <footer>
-        Sistema de Tickets
-    </footer>
+    </div>
+</main>
 
-    <script src="js/app.js"></script>
+<footer>
+    Sistema de Tickets - Proyecto Escolar
+</footer>
+
+<script src="js/app.js"></script>
+
 </body>
 </html>
