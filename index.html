@@ -8,18 +8,38 @@
 </head>
 <body>
 
-    <header>
-        <h1>Sistema de Tickets</h1>
-        <p>Registra incidencias y consulta tu historial fácilmente</p>
-    </header>
+    <nav class="navbar">
+        <h1 class="logo">🎟️ Sistema de Tickets</h1>
+    </nav>
 
-    <main>
+    <main class="container">
         <section class="card">
             <h2>Crear Ticket</h2>
 
             <form id="ticketForm">
-                <label for="titulo">Título del ticket:</label>
-                <input type="text" id="titulo" required placeholder="Ej. Problema con impresora">
+                <label for="titulo">Título del ticket</label>
+                <input type="text" id="titulo" required placeholder="Ej: Error en login">
 
-                <label for="descripcion">Descripción:</label>
-                <textare
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" required placeholder="Describe el problema..."></textarea>
+
+                <label for="prioridad">Prioridad</label>
+                <select id="prioridad">
+                    <option>Alta</option>
+                    <option>Media</option>
+                    <option>Baja</option>
+                </select>
+
+                <button type="submit" class="btn">Crear Ticket</button>
+            </form>
+        </section>
+
+        <section class="card">
+            <h2>Tickets Registrados</h2>
+            <ul id="listaTickets"></ul>
+        </section>
+    </main>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

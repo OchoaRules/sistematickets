@@ -1,38 +1,25 @@
-document.getElementById("ticketForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const titulo = document.getElementById("titulo").value;
-    const descripcion = document.getElementById("descripcion").value;
-
-    // Crear objeto del ticket
-    const ticket = {
-        titulo,
-        descripcion,
-        fecha: new Date().toLocaleString()
-    };
-
-    // Guardar en localStorage
-    let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
-    tickets.push(ticket);
-    localStorage.setItem("tickets", JSON.stringify(tickets));
-
-    agregarTicketALista(ticket);
-
-    // Limpia formulario
-    document.getElementById("ticketForm").reset();
-});
-
-// Mostrar tickets existentes al cargar
-window.onload = () => {
-    let tickets = JSON.parse(localStorage.getItem("tickets")) || [];
-    tickets.forEach(t => agregarTicketALista(t));
-};
-
-function agregarTicketALista(ticket) {
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("ticketForm");
     const lista = document.getElementById("listaTickets");
 
-    const item = document.createElement("li");
-    item.innerHTML = `<strong>${ticket.titulo}</strong><br>${ticket.descripcion}<br><small>${ticket.fecha}</small>`;
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
 
-    lista.appendChild(item);
-}
+        const titulo = document.getElementById("titulo").value;
+        const descripcion = document.getElementById("descripcion").value;
+        const prioridad = document.getElementById("prioridad").value;
+
+        const li = document.createElement("li");
+        li.classList.add("ticket");
+
+        li.innerHTML = `
+            <h3>${titulo}</h3>
+            <p>${descripcion}</p>
+            <p class="prioridad">Prioridad: <strong>${prioridad}</strong></p>
+        `;
+
+        lista.appendChild(li);
+
+        form.reset();
+    });
+});
