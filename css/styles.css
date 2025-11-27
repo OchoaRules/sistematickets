@@ -1,34 +1,98 @@
+/* Colores lilas suaves */
+:root {
+    --lila-suave: #e9d7ff;
+    --lila-claro: #d4b8ff;
+    --lila-medio: #b689ff;
+    --lila-oscuro: #6c34a9;
+    --texto: #2e2e2e;
+    --blanco: #ffffff;
+}
+
+/* General */
 body {
-    font-family: "Segoe UI", sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
+    margin: 0;
+    background-color: var(--lila-suave);
+    color: var(--texto);
 }
 
-.card {
-    border-radius: 12px;
+/* Encabezado */
+header {
+    background: var(--lila-oscuro);
+    color: var(--blanco);
+    padding: 20px;
+    text-align: center;
 }
 
+/* Main layout */
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+/* Caja del formulario */
+.ticket-form, .ticket-list {
+    background: var(--blanco);
+    padding: 20px;
+    width: 45%;
+    min-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Títulos */
+.ticket-form h2, .ticket-list h2 {
+    color: var(--lila-oscuro);
+}
+
+/* Inputs */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--lila-claro);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border 0.3s;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: var(--lila-oscuro);
+}
+
+/* Botón */
+button {
+    background: var(--lila-medio);
+    color: var(--blanco);
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: var(--lila-oscuro);
+}
+
+/* Lista de tickets */
 .ticket {
-    border-left: 8px solid #dc3545;
-    transition: transform 0.2s ease-in-out;
+    background: var(--lila-claro);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    color: #3a2769;
 }
 
-.ticket:hover {
-    transform: scale(1.01);
-}
-
-.ticket-alta {
-    border-left: 8px solid #b30000;
-    background-color: #ffe5e5;
-}
-
-.ticket-media {
-    border-left: 8px solid #ff6666;
-    background-color: #fff0f0;
-}
-
-.ticket-baja {
-    border-left: 8px solid #ff9999;
-}
-
-.btn-delete {
-    font-size: 0.8rem;
+footer {
+    background: var(--lila-oscuro);
+    color: var(--blanco);
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
